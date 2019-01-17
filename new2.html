@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Мир jQuery</title>
+        <link rel="stylesheet" type="text/css" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/ui-lightness/jquery-ui.css">
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js"></script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.11.2/jquery-ui.min.js"></script>
+</head>
+<body>
+
+             <p><a>Hello</a></p>
+             <script type="text/javascript">
+             $(function(){
+                $('a').button().click(function(){alert('Hello jQueryUI');});
+             });
+             </script>
+        
+        <button>Жми1</button>
+        <button>Жми2</button>
+        <button>Жми3</button>
+        <script type="text/javascript">
+        $(function(){
+            $('button').one('click', function(e){
+                $(this).css('color', 'red');
+                alert('Обработчик для кнопки: '+$(this).text());
+            });
+        });
+        </script>
+
+
+<h2>Добро пожаловать в мир jQuery</h2>
+<button id="btn1">jQuery</button>
+<button id="btn2" onclick="alert('Мир JavaScript'); ">JavaScript</button>
+ 
+<script type="text/javascript">
+$(function(){
+    $("#btn1").click(function(){ 
+        $(this).css('background-color', 'red');
+        alert('Мир jQuery');
+    });
+});
+</script>
+
+<ul id="langs">
+        <li>Java</li>
+        <li>C/C++</li>
+        <li>PHP</li>
+    </ul>
+
+<ul class="menu">
+        <li class="punkt1">Пункт 1</li>
+        <li class="punkt2">Пункт 2
+            <ul class="submenu">
+                <li>Подпункт 2.1</li>
+                <li>Подпункт 2.2</li>
+            </ul>
+        </li>
+        <li>Пункт 3
+            <ul class="submenu">
+                <li>Подпункт 3.1</li>
+                <li>Подпункт 3.2</li>
+            </ul>
+        </li>
+    </ul>
+
+<h2>Словарь</h2>
+<table id="tab">
+<tr class="tabhead"><td><p>Слово</p></td><td><p>Перевод</p></td></tr>
+<tr><td><p>table</p></td><td><p>таблица</p></td></tr>
+<tr><td><p>apple</p></td><td><p>яблоко</p></td></tr>
+</table>
+<script type="text/javascript">
+jQuery(document).ready(function(){
+ 
+    $("#tab").css('background-color', 'silver');
+});
+
+$(function(){
+    // поиск по селектору
+    var array0 = $('ul').find('.submenu');
+    array0.css('background-color', 'yellow');
+     
+    // поиск по элементу
+    // получаем первый элемент выборки
+    var elem = $('ul.submenu')[0];
+    var array1= $('ul').find(elem);
+    array1.css('background-color', 'green');
+     
+    // Поиск объекта jQuery
+    var jQueryObject = $('ul.submenu');
+    var array2= $('ul').find(jQueryObject);
+    array2.css('color', 'red');
+});
+
+// дочерние узлы без селектора
+var lists = $('li').children('');
+lists.each(function(index, elem){
+    console.log('log1: '+elem.innerHTML);
+});
+ 
+//дочерние узлы по селектору
+var lists2 = $('li').children('.submenu');
+lists2.each(function(index, elem){
+    console.log('log2: '+elem.innerHTML);
+});
+
+</script>
+
+<br/>
+<br>
+
+<style>
+.redStyle {color:red;}
+</style>
+<!------------------------------------------->
+<button class="redStyle">Переключить стиль</button>
+<script type="text/javascript">
+$(function(){
+        $('button').click(function(){
+            $(this).toggleClass("redStyle");
+// получение разметки для элемента списка и вывод ее в консоль
+var html = $('li.punkt2').html();
+console.log(html);
+     
+// установка новой разметки элемента списка
+$('li.punkt1').html("Пункт 1 <ul class='submenu'><li>Подпункт 1.1</li></ul>")
+
+// вставка строки кода
+$('#langs').append('<li>C#</li>');
+ 
+// вставка элемента
+var jsItem = document.createElement('li');
+jsItem.innerHTML='JavaScript';
+$('#langs').append(jsItem);
+ 
+//вставка объекта jQuery
+var vbItem = $('<li>Visual Basic</li>');
+$('#langs').append(vbItem);
+
+        }
+    );
+});
+
+$(function(){
+    $(document).bind('keydown', function(e){ 
+        console.log(e.which);
+    });
+});
+
+</script>
+
+
+</body>
+</html>

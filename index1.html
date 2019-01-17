@@ -1,0 +1,120 @@
+﻿<!DOCTYPE HTML>
+<html>
+ <head>
+<meta http-equiv="charset" content="windws-1251">
+<!--  <meta charset="utf-8">   -->
+  <title>Тег INPUT, атрибут name</title>
+  <script>  
+    function dataField(f) {
+      alert("Вы ввели: " + f.comment.value);
+     
+
+
+var arr = [1, 2, 3, 4, 5];
+for (var i = 0; i <= arr.length-1; i++) {
+  alert(arr[i]); //выведет 1, 2, 3, 4, 5
+  console.log("Супер!");
+  }
+var num = 12345;
+var str = String(num);
+var arr = str.split('');
+console.log(arr);
+}
+function func1() {
+  console.log('Please!');
+}
+
+  </script>
+
+<style> 
+#elem4 {
+	width: 150px;
+	height: 150px;
+	padding: 10px;
+	border: 1px solid green;
+}
+</style>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+
+ </head>
+ <body> 
+
+<p><input type="submit" onclick="func1(); func2(); func3();"></p>
+  <script>
+function func2() {
+  console.log('Press!');
+
+}
+  </script>
+
+
+ <p class="C code-comment">
+  <a href="#" onclick="alert('Привет, мир!'); return false;">Нажмите на эту ссылку</a>, чтобы увидеть такое окошко.
+</p>
+
+<p class="C code-comment">
+  <a href="#" onclick="var name = prompt('Ваше имя?'); alert('Ваше имя: '+name); return false;">Нажмите на эту ссылку</a>, чтобы запустить код примера.
+</p>
+
+  <form action="handler.php">
+    <p><b>Введите текст</b></p>
+    <p><input type="text" name="comment">
+     <input type="button" value="ОК" onClick="dataField(this.form)"></p>
+  </form>
+
+  <input type="text" value="" id="test">
+<input type="submit" onclick="func()">
+
+<p id="test4">Текст абзаца.</p>
+<input type="submit" onclick="func4()">
+
+
+<p class="www">Текст абзаца №1.</p>
+<p class="www">Текст абзаца №2.</p>
+<p class="www">Текст абзаца №3.</p>
+<p>Текст непомеченного абзаца.</p>
+<input type="submit" onclick="func5()">
+
+<p></p>
+<input type="text" value="1 сек." id="test5">
+<input type="submit" onclick="start()">
+
+
+<ul id="ul">
+	<li>пункт 1</li>
+	<li>пункт 2</li>
+	<li>пункт 3</li>
+	<li>пункт 4</li>
+	<li>пункт 5</li>
+</ul>
+
+
+<button id="button">Добавить li</button>
+
+<p>Понажимайте пожалуйста на кнопочки!</p>
+
+<button class="a1">0</button><button class="a1">0</button><button class="a1">0</button>
+
+<p></p>
+<div id="elem">Блок с текстом.</div>
+<p></p>
+<button id="hide">Спрятать</button>
+<button id="show">Показать</button>
+<p></p>
+<button id="toggle">Нажми на меня</button>
+<div id="elem1">Блок с текстом.</div>
+<p></p>
+<div id="elem4">В конце жми F5.</div>
+<button id="button4">Нажми на меня</button>
+<button id="button5">Нажми на меня</button>
+<p></p>
+
+
+
+
+  <script src="doubleScript.js">  </script>
+
+
+ </body>
+</html>

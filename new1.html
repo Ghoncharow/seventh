@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+<meta http-equiv="charset" content="windws-1251">
+<!--  <meta charset="utf-8">   -->
+  <title>Тег INPUT, атрибут name</title>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+
+ </head>
+ <body id="c1" bgcolor="red" text="black">
+ 
+<button id="trigger">Click me</button>
+<p id="demo"></p>
+
+   <p><iframe src="index.html" width="300" height="120"></iframe></p>
+
+ <p> </p> 
+ <button onclick="alert('Бабах!');">НЕ ЖМИ</button>
+   <script>  
+   
+   $(document).ready(function() {
+    $("#trigger").click(function() {
+    $("#demo").html("Hello, World!");
+    });
+});
+   
+//   alert(Math.PI);
+//   var years = prompt('Сколько вам лет?', 100);
+//   alert('Вам ' + years + ' лет!');
+   var isAdmin = confirm("Сделать желтый заместо красного?");
+   if (isAdmin) document.body.style.background = "yellow";
+//   alert( isAdmin );
+//   var yourName = prompt('Введите ваше имя', '');
+//   if (yourName == null) alert('Ну неужели сложно было хоть что то вписать?');
+//  else alert('Отныне вас будут нарекать ' + yourName);
+    document.write("<br/> Don't press the button!");
+    document.write("<br/>"+Math.PI);
+
+  </script>   
+ 
+
+ <p> </p> 
+ <p> </p> 
+ 
+ <p>Страница по нажатию V становится фиолетовой.</p>
+<script>
+addEventListener("keydown", function(event) {
+if (event.keyCode == 86)
+document.body.style.background = "violet";
+});
+addEventListener("keyup", function(event) {
+if (event.keyCode == 86)
+document.body.style.background = "";
+});
+</script>
+ <p> </p> 
+ <p> </p> 
+ <p> </p> 
+ <p><a href="index.html" >Открыть в старом окне</a></p>
+	  
+<p><a href="index.html" target="_blank">Открыть
+      в новом окне</a></p>
+
+
+ </body>
+</html>

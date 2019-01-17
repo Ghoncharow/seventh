@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/ui-lightness/jquery-ui.css">
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js"></script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.11.2/jquery-ui.min.js"></script>
+
+<style>
+            #langs p {display:none;}
+            #langs p.first {display:block;}
+    img#ars, button#fadeIn, button#fadeOut, button#close { position : relative ; top: -700px;   left: 800px; }
+    #slider, #slider1, #sliderValue, #lang1 {width: 300px; position: relative; top: -550px; left: 800px;} 
+
+</style>        
+</head>
+<body>
+    <h1>Построение пользовательских интерфейсов с помощью виджетов и анимаций.</h1>
+<div id="rect" onclick="displayMessage()" style="width:50px;height:50px;background-color:blue;"></div>
+
+
+ <p><a id=a1>Hello1</a><a id=a2>Hello2</a><a id=a3>Hello3</a><a id=a4>Hello4</a><a id=a5>Hello5</a></p>
+             <script type="text/javascript">
+             $(function(){
+                $('a#a1').button().click(function(){$('body').css('background-color', 'red');});
+                $('a#a2').button().click(function(){$('body').css('background-color', 'black');});
+                $('a#a3').button().click(function(){$('body').css('background-color', 'green');});
+                $('a#a4').button().click(function(){$('body').css('background-color', 'yellow');});
+                $('a#a5').button().click(function(){$('body').css('background-color', 'white');});
+
+             });
+             </script>
+        
+
+
+<table>
+    <tr><td>Слово</td><td>Перевод</td></tr>
+    <tr><td>Cabbage</td><td>Капуста</td></tr>
+    <tr><td>Carrot</td><td>Морковь</td></tr>
+    <tr><td>Potato</td><td>Картофель</td></tr>
+    <tr><td>Tomato</td><td>Помидор</td></tr>
+    </table>
+    <br>
+    <button>Выделить</button>
+    <button>Снять выделение</button>
+    <script type="text/javascript">
+    $(function(){
+        $('table').on('mouseenter', 'tr', function(e){
+            $(this).css('background-color', 'silver');
+        }).on('mouseout', 'tr', function(e){
+            $(this).css('background-color', 'white');
+        });
+         
+        $('button').first().bind('click', function(){
+            $('tr').trigger('mouseenter');
+        });
+         
+        $('button').last().bind('click', function(){
+            $('tr').trigger('mouseout');
+        });
+         
+    });
+    </script>
+
+
+<br>
+<br>
+
+<ul>
+    <li>Java</li>
+    <li>C/C++</li>
+    <li>JavaScript</li>
+</ul>
+<button id="show">Показать</button>
+<button id="hide">Скрыть</button>
+<button id="toggle">Нажми</button>
+<script type="text/javascript">
+$(function() {
+    $('button#show').click(function(){
+        $('ul').show();
+    });
+    $('button#hide').click(function(){
+        $('ul').hide();
+    });
+    $('button#toggle').click(function(){
+        $('ul').toggle();
+    });
+});
+
+
+function displayMessage(){
+     
+    alert('Нажато');
+}
+</script>
+
+<button id="slideUp">Скрыть</button>
+<button id="slideDown">Раскрыть</button>
+<script type="text/javascript">
+$(function() {
+    $('#slideUp').click(function(){
+         $(this).slideToggle('slow');
+    });
+    $('#slideDown').click(function(){
+         $('#slideUp').slideToggle(2000);
+    });
+});
+</script>
+
+<br><br><br>
+
+        <div id="langs">
+            <input type="radio" id="java" name="lang" checked><label for="java">Java</label>
+            <input type="radio" id="csharp" name="lang"><label for="csharp">C#</label>
+            <input type="radio" id="php" name="lang"><label for="php">PHP</label></p>
+        </div>
+        <script type="text/javascript">
+        $(function(){
+                 
+            $('#langs').buttonset();
+        });
+        </script>
+
+<br>
+
+<div id="progress"></div>
+<p><button id="getVal">Получить значение</button></p>
+<p><input type="text" id="val" /> <button id="setVal">Установить значение</button></p>
+<script type="text/javascript">
+$(function(){
+         
+    $('#progress').progressbar({value:25});
+    $('#getVal').button().click(function(){
+        // получаем значение
+        var val=$('#progress').progressbar('option', 'value');
+        alert("Значение индикатора: "+val);
+    });
+    $('#setVal').button().click(function(){
+        // устанавливаем значение
+        var val = parseInt($('#val').val());
+        if(val>100 || val<0){
+            alert('Введено недопустимое значение');
+        }
+        else{
+            $('#progress').progressbar('option', 'value', val);
+        }
+    });
+});
+</script>
+
+<br><br>
+<!--
+-->
+<img src="ars.jpg" id="ars" /><br>
+<button id="fadeIn">Отобразить</button>
+<button id="fadeOut">Cкрыть</button>
+<button id="close" onclick="closeCurrentWindow();">Закрыть</button>
+<script type="text/javascript">
+$(function() {
+    $('#ars').fadeTo(2000,0.99);
+    $('#fadeIn').click(function(){
+         $('#ars').fadeIn(2000, function(){alert('Отображено');});
+    });
+    $('#fadeOut').click(function(){
+         $('#ars').fadeOut(2000, function(){alert('Скрыто');});
+    });
+});
+function closeCurrentWindow() {
+  window.close();
+}
+</script>
+
+<h3 id="slider1">Слайдер</h3>
+<div id="slider"></div> <br />
+<span id="sliderValue"></span>
+<script type="text/javascript">
+$(function(){
+         
+    $('#slider').slider({
+        change: function (event, ui){
+            var val = $('#slider').slider('value');
+            $('#sliderValue').html("Текущее значение слайдера: "+val);
+        },
+        start: function(event, ui){
+            console.log('Начало движения слайдера');
+        },
+        slide: function(event, ui){
+            console.log('Перемещение слайдера');
+        },
+        stop: function(event, ui){
+            console.log('Завершение движения слайдера');
+        }
+    });
+});
+</script>
+<br><br>
+<P id="lang1">Автозаполнение по ключевому слову:</P>
+<input type="text" id="lang1" />
+ 
+<script type="text/javascript">
+$(function(){
+         
+    var langs1 = ["Fortran", "Java", "JavaScript", "VisualBasic", "PHP", "Pascal", "Delphy", "VBA", "Asembler", "C++", "MySQL", "HTML", "CSS", "C#"] ;
+    $('input#lang1').autocomplete({
+        source: langs1
+    });
+ 
+});
+</script>
+
+
+</body>
+</html>
